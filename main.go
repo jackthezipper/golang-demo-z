@@ -14,6 +14,7 @@ type Message struct {
 
 // Handler for POST requests
 func postHandler(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Received new message from %s: %s method %s", msg.Name, msg.Body, r.Method)
 	if r.Method != http.MethodPost {
 		http.Error(w, "Only POST method is allowed", http.StatusMethodNotAllowed)
 		return
